@@ -1,7 +1,7 @@
 ---
 title: "Student Mental Health & Study Habits Analysis"
 subtitle: "ETC5513 Assignment 3"
-author: "Team Members 1-4"
+author: "Group 2: Member 1, Member 2, Member 3, Member 4 — ETC5513"
 date: "2026-05"
 ---
 
