@@ -1,0 +1,27 @@
+project:
+  type: default
+  output-dir: _output
+
+title: "Student Mental Health & Study Habits Analysis"
+subtitle: "ETC5513 Assignment 3 - Reproducible Reporting"
+author:
+  - "Member 1"
+  - "Member 2"
+  - "Member 3"
+  - "Member 4"
+date: "2026-05"
+
+bibliography: references.bib
+
+format:
+  pdf:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    geometry:
+      - top=2.5cm
+      - bottom=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+    fontsize: 11pt
+    linestretch: 1.15
