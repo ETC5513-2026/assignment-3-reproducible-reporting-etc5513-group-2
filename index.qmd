@@ -1,0 +1,38 @@
+---
+title: "Student Mental Health & Study Habits Analysis"
+subtitle: "ETC5513 Assignment 3"
+author: "Team Members 1-4"
+date: "2026-05"
+---
+
+# Executive Summary
+
+Student mental health has emerged as a critical concern across university
+campuses globally [@hunt2010mental]. This study analyses survey data from
+1,200 students to examine how sleep quality, study habits, and counseling
+access relate to stress and anxiety outcomes. Students reporting good sleep
+quality showed stress levels 3.1 points lower than poor sleepers, and those
+with counseling access reported 2.1 points lower anxiety scores. These
+findings highlight sleep optimisation and expanded counseling services as
+practical, evidence-based interventions for improving student wellbeing
+[@walker2017sleep].
+
+# Introduction
+
+Student mental health has become a growing priority for universities
+worldwide. Academic pressure, financial stress, and social adjustment
+create significant psychological burden for many students. Research
+consistently shows that 60-70% of university students experience moderate
+to severe stress during their studies [@gaultney2010prevalence]. Poor
+mental health is associated with lower academic performance, higher dropout
+rates, and long-term health consequences. Daily lifestyle habits including
+sleep, exercise, and study patterns play an important role in shaping
+mental health outcomes. However, most existing research focuses on general
+adult populations rather than student-specific contexts. Understanding which
+modifiable factors most strongly predict stress and anxiety in students can
+guide targeted campus interventions. This analysis uses cross-sectional
+survey data from 1,200 university students to examine these relationships.
+Variables include sleep quality, weekly study hours, GPA, anxiety scores,
+stress levels, and access to counseling services. Findings from this study
+aim to inform practical recommendations for both students and university
+administrators.
