@@ -5,4 +5,4 @@
 .DS_Store
 _output/
 *.pdf
-renv/library/
+renv/library/.quarto/
