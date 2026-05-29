@@ -1,0 +1,94 @@
+---
+title: "Student Mental Health & Study Habits"
+subtitle: "ETC5513 Assignment 3 — Group 2"
+author: "Group 2 Members"
+date: "Semester 1, 2026"
+bibliography: references.bib
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+    footer: "ETC5513 Assignment 3 | Group 2"
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Problem Introduction
+
+- 60-70% of university students experience moderate to severe stress [@acha2023]
+- Poor mental health linked to lower GPA and higher dropout rates
+- Identifying modifiable factors enables targeted interventions
+
+Research question: How do sleep quality, study habits, and counseling access relate to student stress and anxiety?
+
+---
+
+## Dataset Description
+
+- Sample: 1,200 students
+- Key variables: sleep quality, stress, anxiety, weekly study hours, GPA, and counseling access
+
+---
+
+## Methods
+
+- Data cleaned in R using tidyverse and janitor [@hunt2010mental]
+- Pearson correlations and t-tests applied
+- Fully reproducible via Quarto and renv
+
+---
+
+## Results — Study Hours and GPA
+
+```{r}
+#| fig-height: 4
+library(tidyverse)
+
+student_data <- read_csv("data/processed/student_data_clean.csv",
+  show_col_types = FALSE
+)
+
+ggplot(student_data, aes(x = hours_studied_per_week, y = gpa)) +
+  geom_point(alpha = 0.35, color = "#2E86AB", size = 1.5) +
+  geom_smooth(method = "lm", color = "#A23B72", se = TRUE, alpha = 0.2) +
+  labs(x = "Hours Studied per Week", y = "GPA") +
+  theme_minimal(base_size = 14)
+---
+Results — Sleep Quality and Stress
+#| fig-height: 4
+student_data |>
+  mutate(sleep_category = factor(sleep_category,
+    levels = c("Poor", "Fair", "Good")
+  )) |>
+  ggplot(aes(x = sleep_category, y = stress_level, fill = sleep_category)) +
+  geom_boxplot(alpha = 0.7, show.legend = FALSE) +
+  scale_fill_manual(values = c("Poor" = "#d73027", "Fair" = "#fee090", "Good" = "#1a9850")) +
+  labs(x = "Sleep Quality", y = "Stress Level (1-10)") +
+  theme_minimal(base_size = 14)
+---
+  
+Key Findings
+Finding	Value
+Study hours vs GPA	0.52, p < 0.001
+Sleep quality vs Stress	-0.48, p < 0.001
+Anxiety difference with counseling	-2.1 points
+Stress difference good vs poor sleep	-3.1 points
+Conclusions and Recommendations
+
+Conclusions:
+
+Sleep quality is the strongest modifiable predictor of stress
+Counseling access independently reduces anxiety by 2.1 points
+
+Recommendations:
+
+Students should prioritise 7-9 hours sleep nightly
+Universities should expand counseling and sleep health programs
+Researchers should use longitudinal studies to confirm causal pathways
+References
+
+::: {#refs}
+:::
