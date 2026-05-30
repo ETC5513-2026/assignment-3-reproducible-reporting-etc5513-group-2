@@ -1,7 +1,7 @@
 ---
 title: "Student Mental Health & Study Habits Analysis"
 subtitle: "ETC5513 Assignment 3"
-author: "Team Members 1-4"
+author: "Group 2: Member 1, Member 2, Member 3, Member 4 — ETC5513"
 date: "2026-05"
 ---
 
@@ -36,3 +36,89 @@ Variables include sleep quality, weekly study hours, GPA, anxiety scores,
 stress levels, and access to counseling services. Findings from this study
 aim to inform practical recommendations for both students and university
 administrators.
+
+## Methodology
+
+This analysis examined relationships between study habits, sleep quality,
+and mental health outcomes in university students using cross-sectional
+survey data [@gaultney2010prevalence]. Variables collected included weekly
+study hours, sleep quality (1--10 scale), stress levels (1--10), anxiety
+scores (1--10), GPA, and access to counseling services.
+
+Data were loaded using R's tidyverse package and cleaned by removing
+records with missing values. Variable names were standardised using the
+janitor package [@hunt2010mental]. Categorical variables for sleep quality
+(Poor, Fair, Good) and stress levels (Low, Moderate, High) were created
+to support group comparisons and visualisation.
+
+Pearson correlations examined bivariate relationships between continuous
+variables. Independent samples t-tests compared anxiety levels between
+students with and without counseling access. All analyses were conducted
+in R (v4.4.0) using tidyverse for data management and ggplot2 for
+visualisation.
+
+@tbl-summary presents the sample characteristics including mean study
+hours, GPA, stress, anxiety, and sleep quality scores. @fig-pipeline
+illustrates the data processing steps applied in this study.
+```{r}
+#| label: setup-m2
+#| include: false
+#| message: false
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+student_data_clean <- read_csv("data/processed/student_data_clean.csv",
+                               show_col_types = FALSE)
+```
+
+```{r}
+#| label: tbl-summary
+#| echo: false
+#| message: false
+#| tbl-cap: "Sample characteristics of university students in the analysis (n = 1,200)."
+student_data_clean |>
+  summarise(
+    `Study Hours (M)` = round(mean(hours_studied_per_week, na.rm = TRUE), 1),
+    `GPA (M)`         = round(mean(gpa,          na.rm = TRUE), 2),
+    `Stress (M)`      = round(mean(stress_level,  na.rm = TRUE), 1),
+    `Anxiety (M)`     = round(mean(anxiety_score, na.rm = TRUE), 1),
+    `Sleep (M)`       = round(mean(sleep_quality, na.rm = TRUE), 1),
+    `N`               = n()
+  ) |>
+  kable(booktabs = TRUE) |>
+  kable_styling(latex_options = c("striped", "hold_position"))
+```
+
+```{r}
+#| label: fig-pipeline
+#| echo: false
+#| message: false
+#| fig-cap: "Data processing pipeline: steps from raw survey data to the cleaned analytic sample."
+#| fig-width: 5.5
+#| fig-height: 2.2
+library(ggplot2)
+steps <- data.frame(
+  x     = 1:4,
+  label = c("Raw Data\n1,200 obs", "Load\ntidyverse",
+            "Clean\njanitor",     "Analyse\n1,200 obs"),
+  fill  = c("#d62728", "#ff7f0e", "#1f77b4", "#2ca02c"),
+  stringsAsFactors = FALSE
+)
+arrows_df <- data.frame(
+  x = c(1.42, 2.42, 3.42), xend = c(1.58, 2.58, 3.58),
+  y = 1, yend = 1
+)
+ggplot(steps, aes(x = x, y = 1)) +
+  geom_tile(aes(fill = fill), width = 0.8, height = 0.6,
+            show.legend = FALSE) +
+  scale_fill_identity() +
+  geom_text(aes(label = label), color = "white",
+            size = 2.8, fontface = "bold") +
+  geom_segment(data = arrows_df,
+               aes(x = x, xend = xend, y = y, yend = yend),
+               arrow = arrow(length = unit(0.08, "inches")),
+               linewidth = 0.7) +
+  xlim(0.3, 4.7) + ylim(0.6, 1.4) +
+  theme_void()
+```
+
