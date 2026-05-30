@@ -6,3 +6,5 @@
 _output/
 *.pdf
 renv/library/
+/.quarto/
+**/*.quarto_ipynb
