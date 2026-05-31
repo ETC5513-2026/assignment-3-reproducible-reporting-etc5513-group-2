@@ -2,11 +2,8 @@
 title: "Student Mental Health & Study Habits Analysis"
 subtitle: "ETC5513 Assignment 3"
 author: "Group 2: Member 1, Member 2, Member 3, Member 4 — ETC5513"
-<<<<<<< HEAD
-date: "2026-05"
-=======
-date: "Semester 1, 2026 — ETC5513"
->>>>>>> origin/member3-analysis
+date: "Semester 1, 2026"
+
 ---
 
 # Executive Summary
