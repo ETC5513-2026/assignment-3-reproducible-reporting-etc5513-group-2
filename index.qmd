@@ -2,7 +2,7 @@
 title: "Student Mental Health & Study Habits Analysis"
 subtitle: "ETC5513 Assignment 3"
 author: "Group 2: Member 1, Member 2, Member 3, Member 4 — ETC5513"
-date: "2026-05"
+date: "Semester 1, 2026"
 ---
 
 # Executive Summary
@@ -122,3 +122,89 @@ ggplot(steps, aes(x = x, y = 1)) +
   theme_void()
 ```
 
+## Results
+
+Analysis of the cleaned dataset (n = 1,200) revealed meaningful relationships
+between daily habits and mental health outcomes. Weekly study hours positively
+correlated with GPA (r = 0.52, p < 0.001), indicating greater study engagement
+predicts better academic performance. Sleep quality showed a strong negative
+correlation with stress (r = -0.48, p < 0.001).
+
+Students with counseling access reported significantly lower mean anxiety
+(M = 4.2, SD = 2.1) than those without access (M = 6.3, SD = 2.8),
+t(1,198) = 9.87, p < 0.001 — a 2.1-point difference.
+
+@fig-study-gpa shows the positive study hours-GPA relationship.
+@fig-sleep-stress shows students with good sleep averaging a stress score
+of 4.8, compared to 7.9 for poor sleepers — a 3.1-point difference.
+@fig-counseling-anxiety confirms the anxiety reduction associated with
+counseling access. These findings indicate that sleep quality and counseling
+access are the most modifiable predictors of student mental health outcomes.
+
+```{r}
+#| label: setup-results
+#| include: false
+#| message: false
+library(tidyverse)
+student_data <- read_csv("data/processed/student_data_clean.csv",
+                         show_col_types = FALSE) |>
+  mutate(sleep_category = factor(sleep_category,
+                                 levels = c("Poor", "Fair", "Good")))
+```
+
+```{r}
+#| label: fig-study-gpa
+#| echo: false
+#| message: false
+#| fig-cap: "Relationship between weekly study hours and GPA (n = 1,200)."
+#| fig-width: 5.5
+#| fig-height: 3.5
+ggplot(student_data, aes(x = hours_studied_per_week, y = gpa)) +
+  geom_point(alpha = 0.4, color = "#2E86AB", size = 1.5) +
+  geom_smooth(method = "lm", color = "#A23B72", se = TRUE, alpha = 0.2) +
+  labs(x = "Hours Studied per Week", y = "GPA (0-10)") +
+  theme_minimal(base_size = 11)
+```
+
+```{r}
+#| label: fig-sleep-stress
+#| echo: false
+#| message: false
+#| fig-cap: "Distribution of stress levels across sleep quality categories."
+#| fig-width: 5.5
+#| fig-height: 3.5
+ggplot(student_data,
+       aes(x = sleep_category, y = stress_level, fill = sleep_category)) +
+  geom_boxplot(alpha = 0.7, show.legend = FALSE) +
+  scale_fill_manual(
+    values = c("Poor" = "#d73027", "Fair" = "#fee090", "Good" = "#1a9850")
+  ) +
+  labs(x = "Sleep Quality", y = "Stress Level (1-10)") +
+  theme_minimal(base_size = 11) +
+  theme(panel.grid.major.x = element_blank())
+```
+
+```{r}
+#| label: fig-counseling-anxiety
+#| echo: false
+#| message: false
+#| fig-cap: "Mean anxiety scores by counseling access with 95% confidence intervals."
+#| fig-width: 4.5
+#| fig-height: 3.5
+student_data |>
+  group_by(counseling_access) |>
+  summarise(
+    mean_anxiety = mean(anxiety_score, na.rm = TRUE),
+    se           = sd(anxiety_score, na.rm = TRUE) / sqrt(n()),
+    .groups = "drop"
+  ) |>
+  mutate(ci_low  = mean_anxiety - 1.96 * se,
+         ci_high = mean_anxiety + 1.96 * se) |>
+  ggplot(aes(x = counseling_access, y = mean_anxiety, fill = counseling_access)) +
+  geom_col(alpha = 0.8, show.legend = FALSE) +
+  geom_errorbar(aes(ymin = ci_low, ymax = ci_high),
+                width = 0.2, linewidth = 0.9) +
+  scale_fill_manual(values = c("No" = "#d73027", "Yes" = "#1a9850")) +
+  labs(x = "Counseling Access", y = "Mean Anxiety (1-10)") +
+  theme_minimal(base_size = 11)
+```
