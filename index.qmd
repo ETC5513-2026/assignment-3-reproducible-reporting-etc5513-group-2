@@ -37,7 +37,7 @@ stress levels, and access to counseling services. Findings from this study
 aim to inform practical recommendations for both students and university
 administrators.
 
-## Methodology
+# Methodology
 
 This analysis examined relationships between study habits, sleep quality,
 and mental health outcomes in university students using cross-sectional
