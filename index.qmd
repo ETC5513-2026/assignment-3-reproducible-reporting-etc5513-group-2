@@ -211,28 +211,35 @@ student_data |>
   theme_minimal(base_size = 11)
 ```
 
-## Discussion
-The findings align with established research on sleep and student mental health.
-The strong negative relationship between sleep quality and stress (r = -0.48)
-is consistent with literature showing that sleep deprivation impairs emotional
-regulation and cognitive function [@walker2017sleep]. The counseling access
-effect — a 2.1-point anxiety reduction — reflects both the direct benefits of
-professional support and evidence that help-seeking students adopt broader
-adaptive strategies [@eisenberg2007; @regehr2013].
+# Discussion
+
+The findings align with established research on sleep and student mental
+health. The strong negative relationship between sleep quality and stress
+(r = -0.48) is consistent with literature showing that sleep deprivation
+impairs emotional regulation and cognitive function [@walker2017sleep].
+The counseling access effect — a 2.1-point anxiety reduction — reflects
+both the direct benefits of professional support and evidence that
+help-seeking students adopt broader adaptive strategies
+[@eisenberg2007; @regehr2013].
+
 Notably, study hours showed a weaker association with stress than expected,
 suggesting that sleep quality may be a more critical determinant of student
 wellbeing than study quantity alone [@gaultney2010prevalence]. Limitations
-include the cross-sectional design, which prevents causal inference, and the
-reliance on self-reported measures, which may introduce response bias [@acha2023].
-## Conclusion and Recommendations
-This analysis of 1,200 students demonstrates clear, evidence-based relationships
-between sleep quality, counseling access, and mental health outcomes. Sleep
-emerged as the strongest modifiable factor, and counseling access provided
-an additional independent benefit [@kenney2012sleep].
+include the cross-sectional design, which prevents causal inference, and
+the reliance on self-reported measures, which may introduce response bias
+[@acha2023].
+
+# Conclusion and Recommendations
+
+This analysis of 1,200 students demonstrates clear, evidence-based
+relationships between sleep quality, counseling access, and mental health
+outcomes. Sleep emerged as the strongest modifiable factor, and counseling
+access provided an additional independent benefit [@kenney2012sleep].
 **For students:** Prioritise 7-9 hours of quality sleep nightly and use
 available campus counseling services.
 **For universities:** Expand counseling capacity and implement evidence-based
 sleep health education programs. Reduce stigma around help-seeking.
-**For researchers:** Conduct longitudinal studies to establish causal pathways
-between sleep interventions and mental health improvement.
-## References
+**For researchers:** Conduct longitudinal studies to establish causal
+pathways between sleep interventions and mental health improvement.
+
+# References
