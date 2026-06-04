@@ -33,9 +33,10 @@ modifiable factors most strongly predict stress and anxiety in students can
 guide targeted campus interventions. This analysis uses cross-sectional
 survey data from 1,200 university students to examine these relationships.
 Variables include sleep quality, weekly study hours, GPA, anxiety scores,
-stress levels, and access to counseling services. Findings from this study aim to inform evidence-based, practical recommendations
-for both students and university administrators, as explored in the Discussion
-and Recommendations sections.
+stress levels, and access to counseling services. Findings from this study aim to inform evidence-based, practical
+recommendations for both students and university administrators, as
+explored in the Discussion and Recommendations sections.
+
 
 
 ## Methodology
