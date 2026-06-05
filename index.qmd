@@ -2,8 +2,7 @@
 title: "Student Mental Health & Study Habits Analysis"
 subtitle: "ETC5513 Assignment 3"
 author: "Group 2: Member 1, Member 2, Member 3, Member 4 — ETC5513"
-date: "May 2026"
-
+date: "Semester 1, 2026"
 ---
 
 # Executive Summary
@@ -34,9 +33,11 @@ modifiable factors most strongly predict stress and anxiety in students can
 guide targeted campus interventions. This analysis uses cross-sectional
 survey data from 1,200 university students to examine these relationships.
 Variables include sleep quality, weekly study hours, GPA, anxiety scores,
-stress levels, and access to counseling services. Findings from this study
-aim to inform practical recommendations for both students and university
-administrators.
+stress levels, and access to counseling services. Findings from this study aim to inform evidence-based, practical
+recommendations for both students and university administrators, as
+explored in the Discussion and Recommendations sections.
+
+
 
 ## Methodology
 
@@ -208,4 +209,42 @@ student_data |>
   scale_fill_manual(values = c("No" = "#d73027", "Yes" = "#1a9850")) +
   labs(x = "Counseling Access", y = "Mean Anxiety (1-10)") +
   theme_minimal(base_size = 11)
+
 ```
+
+
+# Discussion
+
+The findings align with established research on sleep and student mental
+health. The strong negative relationship between sleep quality and stress
+(r = -0.48) is consistent with literature showing that sleep deprivation
+impairs emotional regulation and cognitive function [@walker2017sleep].
+The counseling access effect — a 2.1-point anxiety reduction — reflects
+both the direct benefits of professional support and evidence that
+help-seeking students adopt broader adaptive strategies
+[@eisenberg2007; @regehr2013].
+
+Notably, study hours showed a weaker association with stress than expected,
+suggesting that sleep quality may be a more critical determinant of student
+wellbeing than study quantity alone [@gaultney2010prevalence]. Limitations
+include the cross-sectional design, which prevents causal inference, and
+the reliance on self-reported measures, which may introduce response bias
+[@acha2023].
+
+# Conclusion and Recommendations
+
+This analysis of 1,200 students demonstrates clear, evidence-based
+relationships between sleep quality, counseling access, and mental health
+outcomes. Sleep emerged as the strongest modifiable factor, and counseling
+access provided an additional independent benefit [@kenney2012sleep].
+
+**For students:** Prioritise 7-9 hours of quality sleep nightly and use
+available campus counseling services.
+
+**For universities:** Expand counseling capacity and implement evidence-based
+sleep health education programs. Reduce stigma around help-seeking.
+
+**For researchers:** Conduct longitudinal studies to establish causal
+pathways between sleep interventions and mental health improvement.
+
+# References
