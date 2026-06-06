@@ -3,8 +3,8 @@
 .RData
 .Ruserdata
 .DS_Store
-_output/
 *.pdf
 renv/library/
 /.quarto/
 **/*.quarto_ipynb
+.positai
